@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderWater2D.CSharp.Plugins", "UnderWater2D.CSharp.Plugins.csproj", "{0877A07F-3B3A-2A25-EA85-444CACB4EB3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderWater2D.CSharp", "UnderWater2D.CSharp.csproj", "{1A26A523-1E55-F0E6-8A9D-C14D462A2B53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0877A07F-3B3A-2A25-EA85-444CACB4EB3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0877A07F-3B3A-2A25-EA85-444CACB4EB3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0877A07F-3B3A-2A25-EA85-444CACB4EB3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0877A07F-3B3A-2A25-EA85-444CACB4EB3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A26A523-1E55-F0E6-8A9D-C14D462A2B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A26A523-1E55-F0E6-8A9D-C14D462A2B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A26A523-1E55-F0E6-8A9D-C14D462A2B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A26A523-1E55-F0E6-8A9D-C14D462A2B53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

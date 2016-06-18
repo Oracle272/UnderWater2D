@@ -24,7 +24,10 @@ public class CameraTransition : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Target = col.gameObject;
+        if (col.gameObject.tag == "Ocean")
+        {
+           Target = col.gameObject;
+        }
     }
 
 }

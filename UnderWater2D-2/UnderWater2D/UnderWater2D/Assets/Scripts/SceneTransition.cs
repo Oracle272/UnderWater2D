@@ -5,6 +5,7 @@ using System.Collections;
 public class SceneTransition : MonoBehaviour {
     public GameObject player;
     public Transform playerspawn;
+    
 	// Use this for initialization
 	void Start () {
 	}
@@ -25,16 +26,16 @@ public class SceneTransition : MonoBehaviour {
     }
 
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.gameObject.tag == "toOcean")
-        {
-            SceneManager.LoadScene("OpenOcean");
-        }
+    //void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    if(col.gameObject.tag == "toOcean")
+    //    {
+    //        SceneManager.LoadScene("OpenOcean");
+    //    }
 
-        else if (col.gameObject.tag == "toHouse")
-        {
-            SceneManager.LoadScene("PlayerHouse");
-        }
-    }
+    //    else if (col.gameObject.tag == "toHouse")
+    //    {
+    //        SceneManager.LoadScene("PlayerHouse");
+    //    }
+    //}
 }

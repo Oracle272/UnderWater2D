@@ -73,7 +73,13 @@ public class PlayerMovement1 : MonoBehaviour {
         var verticalMovement = CnInputManager.GetAxis("Vertical");
         PlayerBody.AddForce(new Vector2(horizontalMovement * Time.deltaTime*speed, verticalMovement * Time.deltaTime*speed), ForceMode2D.Force);
 
-        // OriginTransform.Rotate(Vector3.up, horizontalMovement * Time.deltaTime * RotationSpeed);
+
+        var dir = GetComponent<Rigidbody2D>().velocity;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        var q = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, RotationSpeed * Time.deltaTime);
+        //transform.rotation = Quaternion.SetLookRotation(Rigidbody2D.velocity);
+        //this.gameObject.transform.Rotate(Vector3.up, horizontalMovement * Time.deltaTime * RotationSpeed);
     }
 
 }

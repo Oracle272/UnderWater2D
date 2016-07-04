@@ -5,6 +5,9 @@ using System.Collections;
 public class SceneTransition : MonoBehaviour {
     public GameObject player;
     public Transform playerspawn;
+    private int prevLevel;
+    private int level;
+    public Transform[] PosiblePositions;
     
 	// Use this for initialization
 	void Start () {
@@ -22,7 +25,37 @@ public class SceneTransition : MonoBehaviour {
 
     void OnLevelWasLoaded()
     {
-        player.transform.position = playerspawn.position;
+        player.transform.position = PosiblePositions[prevLevel].transform.position;
+
+        prevLevel = level;
+
+        switch (level)
+        {
+            case 0:
+                player.transform.position = PosiblePositions[0].transform.position;
+                break;
+            case 1:
+                player.transform.position = PosiblePositions[1].transform.position;
+                break;
+            case 2:
+                player.transform.position = PosiblePositions[2].transform.position;
+                break;
+            case 3:
+                player.transform.position = PosiblePositions[3].transform.position;
+                break;
+            case 4:
+                player.transform.position = PosiblePositions[4].transform.position;
+                break;
+            case 5:
+                player.transform.position = PosiblePositions[5].transform.position;
+                break;
+            case 6:
+                player.transform.position = PosiblePositions[6].transform.position;
+                break;
+            case 7:
+                player.transform.position = PosiblePositions[7].transform.position;
+                break;
+        }
     }
 
 

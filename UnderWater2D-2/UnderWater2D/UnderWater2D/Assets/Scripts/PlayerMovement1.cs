@@ -9,61 +9,8 @@ public class PlayerMovement1 : MonoBehaviour {
     public float speed = 0.5f;
 	// Use this for initialization
 	void Start () {
-
-
         PlayerBody = GetComponent<Rigidbody2D>();
 	}
-
-    // Update is called once per frame
-    //void Update () {
-
-    //       if (SwipeManager.SwipeDirection == Swipe.Up)
-    //       {
-    //           PlayerBody.AddForce(new Vector2(0, speed*Time.deltaTime), ForceMode2D.Force);
-    //           // do something...
-    //       }
-
-    //       if (SwipeManager.SwipeDirection == Swipe.Down)
-    //       {
-    //           PlayerBody.AddForce(new Vector2(0, -speed*Time.deltaTime), ForceMode2D.Force);
-    //           Debug.Log("Moving Down");
-    //           // do something...
-    //       }
-
-    //       if (SwipeManager.SwipeDirection == Swipe.Left)
-    //       {
-    //           PlayerBody.AddForce(new Vector2(-speed*Time.deltaTime, 0), ForceMode2D.Force);
-    //           // do something...
-    //       }
-
-    //       if (SwipeManager.SwipeDirection == Swipe.Right)
-    //       {
-    //           PlayerBody.AddForce(new Vector2(speed*Time.deltaTime, 0), ForceMode2D.Force);
-    //           // do something...
-    //       }
-
-    //       if (SwipeManager.SwipeDirection == Swipe.DownLeft)
-    //       {
-    //           PlayerBody.AddForce(new Vector2(-speed * Time.deltaTime, -speed * Time.deltaTime), ForceMode2D.Force);
-
-    //       }
-    //       if (SwipeManager.SwipeDirection == Swipe.DownRight)
-    //       {
-    //           PlayerBody.AddForce(new Vector2(speed * Time.deltaTime, -speed * Time.deltaTime), ForceMode2D.Force);
-
-    //       }
-    //       if (SwipeManager.SwipeDirection == Swipe.UpLeft)
-    //       {
-    //           PlayerBody.AddForce(new Vector2(-speed * Time.deltaTime, speed * Time.deltaTime), ForceMode2D.Force);
-
-    //       }
-    //       if (SwipeManager.SwipeDirection == Swipe.UpLeft)
-    //       {
-    //           PlayerBody.AddForce(new Vector2(speed * Time.deltaTime, speed * Time.deltaTime), ForceMode2D.Force);
-
-    //       }
-
-    //   }
 
     public float RotationSpeed = 15f;
 
@@ -78,8 +25,7 @@ public class PlayerMovement1 : MonoBehaviour {
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         var q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, RotationSpeed * Time.deltaTime);
-        //transform.rotation = Quaternion.SetLookRotation(Rigidbody2D.velocity);
-        //this.gameObject.transform.Rotate(Vector3.up, horizontalMovement * Time.deltaTime * RotationSpeed);
+        /*The code above is used to make it so the player rotates in the direction that it is moving*/
     }
 
 }

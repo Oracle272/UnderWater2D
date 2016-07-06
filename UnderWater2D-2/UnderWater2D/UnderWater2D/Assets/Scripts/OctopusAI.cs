@@ -1,23 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyAI : MonoBehaviour {
+public class OctopusAI : MonoBehaviour {
 
-    private  Rigidbody2D Enemy;
+    private Rigidbody2D Enemy;
     private Transform target;
     bool inRange = false;
-    
+    public GameObject ink;
+    public Transform inkSpawn;
     public float speed = 1.0f;
     public float rotationSpeed = 1.0f;
     public float detectionRange = 10;
     private int directionPicker;
     public float timer = 0.0f; // how long it will go in the direction
     public float thrust = 5.0f;
+    public int force;
+    bool canAttack = true;
+
+
 
     void Start()
     {
         Enemy = GetComponent<Rigidbody2D>();
-    
+
+    }
+    void OnEnable()
+    {
+        canAttack = true;
     }
 
     void Update()
@@ -31,39 +40,39 @@ public class EnemyAI : MonoBehaviour {
                 directionPicker = Random.Range(1, 5);
                 Direction();
             }
+
+            
         }
-        //if in range
-        if (inRange == true)
+
+        if(inRange == true)
         {
-            transform.LookAt(target.position);
-            transform.Rotate(new Vector3(0, -90, 0), Space.Self);//correcting the original rotation
-                                                                
-            if (Vector3.Distance(transform.position, target.position) > 1f)
-            {//move if distance from target is greater than 1
-                transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
-            }
+            canAttack = true;
         }
-
+        if (canAttack == true)
+        {
+            StartCoroutine(WaitToShoot());
+            //playAnim
+        }
     }
-
-
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == ("Player"))
         {
             inRange = true;
             target = col.gameObject.transform;
+            Debug.Log("in");
         }
     }
-
-    void OnTriggerExit2D(Collider2D col)
+   
+    IEnumerator WaitToShoot()
     {
-        if (col.gameObject.tag == ("Player"))
-        {
-            inRange = false;
-        }
+        canAttack = false;
+        Rigidbody2D inkInstance;
+        inkInstance = Instantiate(ink, inkSpawn.position, inkSpawn.rotation) as Rigidbody2D;
+        inkInstance.AddForce((target.position - transform.position) * force);
+        yield return new WaitForSeconds(0.5f);
+        canAttack = true;
     }
-
 
     void Direction()
     {
@@ -84,5 +93,8 @@ public class EnemyAI : MonoBehaviour {
             Enemy.AddForce(-transform.right * thrust);
         }
     }
-}
 
+    
+
+
+}

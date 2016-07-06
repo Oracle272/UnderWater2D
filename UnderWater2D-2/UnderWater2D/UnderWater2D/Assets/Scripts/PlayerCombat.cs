@@ -7,6 +7,8 @@ public class PlayerCombat : MonoBehaviour {
     public int startingHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
+    public GameObject shell;
+    public Transform CoralMiddle;
      int sharkdmgAmount = 2;
      int piranhadmgAmount = 1;
      int octopusdmgAmount = 3;
@@ -83,6 +85,14 @@ public class PlayerCombat : MonoBehaviour {
             currentHealth += 10;
             healthSlider.value = currentHealth;
             Destroy(GameObject.FindGameObjectWithTag("SeaWeed"));
+        }
+
+        else if(col.gameObject.name == "Coral")
+        {
+            Rigidbody2D shellInstance;
+            shellInstance = Instantiate(shell, CoralMiddle.position, CoralMiddle.rotation) as Rigidbody2D;
+            shellInstance.AddForce(-CoralMiddle.right * 5);
+            Destroy(GameObject.FindGameObjectWithTag("Coral"));
         }
     }
 }

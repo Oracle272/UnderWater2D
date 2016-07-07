@@ -84,7 +84,9 @@ public class PlayerCombat : MonoBehaviour {
         {
             currentHealth += 10;
             healthSlider.value = currentHealth;
-            Destroy(GameObject.FindGameObjectWithTag("SeaWeed"));
+            //Destroy(GameObject.FindGameObjectWithTag("SeaWeed"));
+            //changed the code above to below
+            Destroy(col.gameObject);
         }
 
         else if(col.gameObject.name == "Coral")
@@ -92,7 +94,9 @@ public class PlayerCombat : MonoBehaviour {
             Rigidbody2D shellInstance;
             shellInstance = Instantiate(shell, CoralMiddle.position, CoralMiddle.rotation) as Rigidbody2D;
             shellInstance.AddForce(-CoralMiddle.right * 5);
-            Destroy(GameObject.FindGameObjectWithTag("Coral"));
+            //Destroy(GameObject.FindGameObjectWithTag("Coral")); 
+            //changed the code above to below
+            Destroy(col.gameObject);
         }
     }
 }

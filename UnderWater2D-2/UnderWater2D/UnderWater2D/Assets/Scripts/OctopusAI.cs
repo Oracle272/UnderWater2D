@@ -5,6 +5,7 @@ public class OctopusAI : MonoBehaviour {
 
     private Rigidbody2D Enemy;
     private Transform target;
+    [SerializeField]
     bool inRange = false;
     public GameObject ink;
     public Transform inkSpawn;
@@ -15,7 +16,8 @@ public class OctopusAI : MonoBehaviour {
     public float timer = 0.0f; // how long it will go in the direction
     public float thrust = 5.0f;
     public int force;
-    bool canAttack = true;
+    [SerializeField]
+    bool canAttack = false;
 
 
 
@@ -69,8 +71,8 @@ public class OctopusAI : MonoBehaviour {
         canAttack = false;
         Rigidbody2D inkInstance;
         inkInstance = Instantiate(ink, inkSpawn.position, inkSpawn.rotation) as Rigidbody2D;
-        inkInstance.AddForce((target.position - transform.position) * force);
-        yield return new WaitForSeconds(0.5f);
+        //inkInstance.AddForce((target.position - transform.position) * force);
+        yield return new WaitForSeconds(5.0f);
         canAttack = true;
     }
 

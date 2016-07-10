@@ -13,6 +13,8 @@ public class EnemyAI : MonoBehaviour {
     private int directionPicker;
     public float timer = 0.0f; // how long it will go in the direction
     public float thrust = 5.0f;
+    private Vector3 v_diff;
+
 
     void Start()
     {
